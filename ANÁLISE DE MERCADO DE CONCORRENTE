@@ -1,0 +1,34 @@
+ANÁLISE DE MERCADO DE CONCORRENTE
+
+1- FOOD TO SAVE
+-> Modelo de negócio:
+Comissão por compra (20%-30%) para o restaurante e taxa de serviço para os consumidores. Ausência de assinatura, ou seja, o mercado só ganha vendendo seus produtos, pois os mesmos já iriam para o lixo.
+Para os mercados, o modelo é B2B; já para o consumidor, é B2C.
+
+-> Análise Operacional 
+O FTS opera com o modelo de entrega 100% terceirizada via API, porém 60% dos seus pedidos são retirados diretamente nas lojas parceiras.
+
+-> Experiência do usuário
+Aqui, onde fica um pouco mais complicado, a FTS tem um sistema de "Mystery Box" em que não preza muito pelo cliente, e sim pelas lojas, nas quais eles podem colocar qualquer alimento sem restrição, o que, às vezes, causa falta de padronização e perda de qualidade.
+Por exemplo, clientes celíacos não podem pedir alimentos sem glúten, o que acaba gerando uma experiência negativa ou tornando o aplicativo até repulsivo para pessoas com restrição alimentar.
+
+-> Upgrades
+1. Criar filtros para pessoas com restrições alimentares nas "Mystery Box".
+
+2. Como o nosso app quer vender produtos perto do prazo de validade, em sua maioria padarias, restaurantes (se for aplicável) tendem a vender esses produtos no final do dia. Logo, é necessário criar um sistema sólido de notificações, a fim de notificar os clientes quando a janela de vendas estiver aberta.
+
+3. Para facilitar as vendas e evitar ao máximo desperdício, pode ser criado um sistema de depreciação dos produtos quando as lojas começam a ficar mais próximas do seu fechamento
+EX: leite - R$3,50 -> 17:00
+    leite - R$2,00 -> 21:30 (30 min antes do fechamento do mercado)
+
+4. Criar sistemas de agendamento de entrega???? Por exemplo, uma pessoa tem a rotina de lanchar todo dia às 21:00 e quer que por padrão todo dia chegue uma "Mystery Box" na casa dela. Poderia se tornar em uma experiência positiva para o cliente.
+
+
+
+
+
+
+
+
+ 
+

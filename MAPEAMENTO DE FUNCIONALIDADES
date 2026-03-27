@@ -1,0 +1,21 @@
+1. Para o CONSUMIDOR
+Geolocalização: Filtra estabelecimentos parceiros (padarias, restaurantes, hortifrutis, docerias) num raio próximo à localização do usuário.
+Categorização de Sacolas: O usuário não escolhe o item específico, mas seleciona o "estilo" da sacola:
+->Doce: Itens de confeitaria, bolos, donuts, etc.
+->Salgada: Pães, salgados, refeições prontas ou lanches.
+->Mista: Uma combinação de ambos.
+Agendamento de Resgate: O app indica uma janela de horário específica (geralmente próxima ao fechamento da loja) para que o cliente retire o pedido.
+Delivery Integrado: Em algumas regiões e estabelecimentos, é possível optar pela entrega em casa (geralmente num raio de até 5 km), além da opção de retirada no local.
+Transparência de Desconto: Exibe o valor original estimado da sacola vs. o valor com desconto, até 70%OFF.
+Programa de Indicação: Funcionalidade que recompensa usuários que trazem novos "foodsavers" para a plataforma com cupons de desconto.
+
+2. Para ESTABELECIMENTO
+Painel do Parceiro: Ferramenta de gestão onde o lojista controla a quantidade de sacolas disponíveis no dia, baseando-se no excedente real de produção.
+Gestão de Repasses: Sistema que automatiza a divisão do valor da venda.
+Métricas de Impacto: O estabelecimento consegue visualizar a quantidade de alimentos salvos e a estimativa de CO₂ que deixou de ser emitido na atmosfera.
+Visibilidade e Fluxo: Funciona como uma ferramenta de marketing para atrair novos clientes que, ao retirarem a sacola, acabam consumindo outros produtos pelo preço cheio.
+
+3. PAGAMENTO E FIDELIDADE
+Pagamento In-App: Suporte a Cartão de Crédito, PIX e, em alguns casos, Vale-Refeição (dependendo da integração do estabelecimento).
+Cupons de Desconto: Uso de códigos promocionais para primeira compra ou campanhas de reengajamento 
+Sistema de Avaliação: Permite que o usuário dê uma nota para a sacola, ajudando a manter o controle de qualidade dos itens enviados como "surpresa".
