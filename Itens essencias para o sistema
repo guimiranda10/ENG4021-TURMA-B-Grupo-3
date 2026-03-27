@@ -1,0 +1,16 @@
+1) Cadastro
+
+O sistema deve permitir fácil acesso aos usuários e supermercados, com página de login com devida segurança.
+
+2) Catálogo de produtos
+
+Deve ter um sistema que informa as informações do produto, como nome, categoria, preço original e preço com o desconto aplicado, data de validade e imagem.
+
+3) Controle da validade
+
+O sistema deve monitorar a data de validade de cada produto, avisando aos consumidores os que estão perto de vencer.
+
+4) Aplicação do desconto
+
+Após o item anterior, já aplica automaticamente um desconto a tais intens.
+
