@@ -1,0 +1,89 @@
+-> Página principal:
+  Header - Endereço de entrega e Carrinho de compras
+  Meio - Categorias de estabelecimentos
+         promoções
+         estabelecimentos parceiros
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Página Busca:
+  Header - Barra de pesquisa
+  Meio - Categorias de produtos
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Página Ultimos Pedidos:
+  Header - Ultimos Pedidos(similar)
+  Meio - Ultimo Pedido 
+         Histórico de Pedidos 
+         (Data, Estabelecimento, Descrição do pedido)
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Página Carrinho de compras:
+  Header - Voltar, "Carrinho", Limpar
+  Meio - Nome do estabelecimento
+         Descrição do pedido
+         Adcionar mais itens ao pedido
+         Código promocional
+         Resumo de valores
+            Subtotal
+            Taxas
+            Total
+         "Total" -> Botão Finalizar
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Pagina Do Estabelecimento
+  Header - Voltar, Nome do Estabelecimento, Logo
+  Meio - Tempo de espera, Taxa de Entrega, Avaliações
+         Promoções
+         Cardápio
+ ** Página Dinâmica, ao descer a barra de pesquisa interna do estabelecimento aparece junto de divisões para cada categoria interna do estabelecimento
+  Footer - Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Página Perfil:
+  Header - Voltar, Foto de Perfil, Nome
+  Meio - Dados da conta
+         Endereços
+         Métodos de Pagamento
+         Mensagens
+         Configurações
+         Ajuda
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Página Dados da conta:
+  Header - Voltar, "Dados da Conta"
+  Meio - Nome Completo
+         Data de Nascimento
+         CPF
+         Email
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Configurações:
+  Header - Voltar, "Configurações"
+  Meio - Segurança
+         Dispositivos Conectados
+         Sair
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Segurança:
+  Header - Voltar, "Segurança"
+  Meio - Senha Nova
+         Confirmar Senha Nova
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil       
+
+-> Dispositivos Conectados:
+  Header - Voltar, "Dispositivos Conectados"
+  Meio - Lista de Dispositivos
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Ajuda:
+  Header - Voltar, "Dispositivos Conectados"
+  Meio - FAQ (Perguntas Frequentes)
+         Lista de Perguntas
+         Central de Atendimento
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+-> Central de Atendimento:
+  Header - Voltar, "Dispositivos Conectados"
+  Meio - "Assunto" ...
+         "Mensagem" ...
+         Enviar
+  Footer - Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
