@@ -1,0 +1,11 @@
+Para o sistema poder automaticamente aplicar o desconto sobre os produtos do app, ele precisa que algumas informações sejam fornecidas pelos mercados, como o nome do produto, data de 
+validade, preço original do produto e quantos dele ainda estão em estoque. A partir daí, o sistema pode comparar a data de validade do produto com a data atual, verificando: 
+ - se o produto estiver longe da data de vencimento,  ele continua com o preço da loja e nenhuma promoção é aplicada sobre ele. 
+ - se o produto estiver próximo da data de validade, ele já é automaticamente marcado e tem o desconto aplicado sobre ele. 
+Após isso, o desconto seria planejeado pelo próprio mercado, mas um exemplo desse desconto pode ser o seguinte: 
+ -7 dias ou mais do vencimento -> sem desconto;
+ -4 a 6 dias do vencimento -> desconto de 10%;
+ -2 a 3 dias do vencimento -> desconto de 20%;
+ -1 dia do vencimento ->desconto de 30%;
+ -produto vencido → removido da venda, pois o produto não é considerado próprio para consumo. 
+Depois desse desconto aplicado, o sistema já avisa automaticamente ao consumidor as informações atualizadas sobre a data de validade e sobre o preço com o desconto aplicado. 
