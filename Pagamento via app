@@ -1,0 +1,11 @@
+1) Nosso app funciona como um intermediador entre cliente e mercado, onde o cliente vai pagar ao nosso aplicativo, que reterá temporariamente o dinheiro, prática conhecida como escrow. O 
+próximo passo é repassar esse dinheiro ao mercado, garantindo segurança máxima para todas as partes. 
+2) Formas de pagamento -> 
+ - Pix: o app gera um código para o cliente pagar.
+ - Cartão: crédito ou débito. 
+ - Carteira do app: que funcionaria em forma de crédito, usado principalmente em reembolso para compras futuras
+3) Passo a passo da compra: 
+ - Compra: cliente escolhe os produtos e os adiciona no carrinho.
+ - Pagamento: cliente escolhe um dos métodos de pagamento e o realiza. 
+ - Mercado recebe o pedido e confirma a disponibilidade. Caso algo não dê certo, o cliente já recebe um reembolso automático. 
+ - Caso confimada a compra, o cliente já retira ou pede a entrega. 
