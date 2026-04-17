@@ -1,0 +1,67 @@
+from datetime import datetime
+
+class GestorEstoqueTempoReal:
+    def __init__(self):
+        self.catalogo_produtos = {}
+        self.registro_cronologico = {}
+
+    def cadastrar_novo_produto(self, codigo_sku, descricao, quantidade_inicial):
+        agora = datetime.now()
+        self.catalogo_produtos[codigo_sku] = {
+            "descricao": descricao,
+            "qtd_fisica_total": quantidade_inicial,
+            "qtd_bloqueada_reserva": 0
+        }
+        self.registro_cronologico[codigo_sku] = agora
+        print(f"[{agora.strftime('%H:%M:%S')}] CADASTRADO: {descricao} (SKU: {codigo_sku}) com {quantidade_inicial} unidades.")
+
+    def solicitar_reserva(self, codigo_sku, quantidade_solicitada):
+        agora = datetime.now()
+        
+        if codigo_sku not in self.catalogo_produtos:
+            print(f"Erro: SKU {codigo_sku} não encontrado.")
+            return False
+
+        produto = self.catalogo_produtos[codigo_sku]
+        estoque_livre_para_venda = produto["qtd_fisica_total"] - produto["qtd_bloqueada_reserva"]
+
+        if quantidade_solicitada <= estoque_livre_para_venda:
+            produto["qtd_bloqueada_reserva"] += quantidade_solicitada
+            self.registro_cronologico[codigo_sku] = agora
+            print(f"[{agora.strftime('%H:%M:%S')}] RESERVA: {quantidade_solicitada} un. de {produto['descricao']} bloqueadas.")
+            return True
+        
+        print(f"Recusado: Estoque insuficiente para {produto['descricao']}.")
+        return False
+
+    def efetivar_baixa_venda(self, codigo_sku, quantidade_vendida):
+        momento_venda = datetime.now()
+        
+        if codigo_sku in self.catalogo_produtos:
+            produto = self.catalogo_produtos[codigo_sku]
+            
+            if quantidade_vendida <= produto["qtd_bloqueada_reserva"]:
+                produto["qtd_fisica_total"] -= quantidade_vendida
+                produto["qtd_bloqueada_reserva"] -= quantidade_vendida
+                self.registro_cronologico[codigo_sku] = momento_venda
+                print(f"[{momento_venda.strftime('%H:%M:%S')}] BAIXA: {quantidade_vendida} un. de {produto['descricao']} confirmadas.")
+                return True
+        
+        print(f"Erro na baixa: Verifique se há reservas para o SKU {codigo_sku}.")
+        return False
+
+    def exibir_painel_controle(self):
+        agora = datetime.now()
+        print(f"\n--- PAINEL DE ESTOQUE | {agora.strftime('%d/%m/%Y %H:%M')} ---")
+        
+        if not self.catalogo_produtos:
+            print("Estoque vazio. Nenhum produto cadastrado.")
+        else:
+            for sku, info in self.catalogo_produtos.items():
+                saldo_livre = info["qtd_fisica_total"] - info["qtd_bloqueada_reserva"]
+                print(f"PRODUTO: {info['descricao']} | SKU: {sku}")
+                print(f"   [Físico: {info['qtd_fisica_total']}] - [Reservado: {info['qtd_bloqueada_reserva']}] = DISPONÍVEL: {saldo_livre}")
+        print("-" * 50)
+
+
+"CÓDIGO OTIMIZADO PELO GEMINI"
