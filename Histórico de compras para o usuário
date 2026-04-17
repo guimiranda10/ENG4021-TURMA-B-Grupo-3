@@ -1,0 +1,23 @@
+Baseado em Apps de Delivery como Zé delivery, Ifood, Rappi, Uber Eats... é comum que no topo das página de pedidos tenha o ultimo pedido escrito "PEÇA DE NOVO".
+
+Layout Padrão-> 
+
+Header -> Nada
+Meio -> "Peça de novo" (3 Opções com os ultimos 3 Pedidos/restaurantes, NÃO REPETE RESTAURANTE):
+                      ->  Pedido -> "Restaurante/mercado" com as infos de ETA e Taxa de entrega
+                          Itens no Carrinho (cada um enumerado, sem valores)
+                                        *ADICIONAR NA SACOLA*
+        "ULTIMOS ESTABELELCIMENTO"
+         -> Lista dos ultimos estabelecimentos que o usuário pediu
+
+        "Histórico"
+        Lista de restaurantes com o seguinte formato:
+
+         -> "dd/mm/aaaa" 
+         -> Pedido -> "Restaurante/mercado" com as infos de ETA e Taxa de entrega
+                          Itens no Carrinho (cada um enumerado, sem valores)
+                                         *ADICIONAR NA SACOLA*
+
+Footer -> Botões: Busca, Página Inicial, Ultimos Pedidos, Perfil
+
+
