@@ -1,0 +1,15 @@
+. Gerenciamento de estoque em tempo real após compras ou reservas
+
+- O sistema trabalha de duas maneiras que afetam o estoque de um produto: a reserva e a compra confirmada. Cada um deles tem um impacto diferente no que é exibido para os outros usuários.
+Quando um cliente faz uma reserva, o produto é marcado como indisponível imediatamente, antes mesmo do pagamento ser processado. 
+Isso evita que dois usuários consigam reservar o mesmo item ao mesmo tempo. A janela de reserva dura duas horas. Se o pagamento não for concluído dentro desse período, ou se o usuário cancelar,o produto volta ao catálogo automaticamente
+e fica disponível para outros.
+- Quando o pagamento é confirmado, o produto passa para o status de reservado com pagamento efetuado. Ele continua indisponível para outros usuários, mas agora com uma diferença: 
+mesmo que o usuário que pagou não apareça para retirar, o sistema não devolve o produto ao catálogo automaticamente, porque o pagamento já aconteceu e a operação está encerrada do lado do parceiro.
+O reembolso, se houver cancelamento posterior, é tratado separadamente.
+Do lado do gerente do mercado, o painel web atualiza o estoque em tempo real. Quando uma reserva é feita, o número de unidades disponíveis daquele produto diminui. Quando a reserva expira sem pagamento, o número volta ao que era antes.
+O gerente do supermercado pode acompanhar esse movimento ao longo do dia sem precisar recarregar a página.
+Se o parceiro precisar remover um produto do catálogo manualmente, por exemplo porque o item foi vendido no caixa físico da loja antes de alguém reservar pelo app, ele pode fazer isso diretamente pelo painel com um toque.
+O sistema cancela qualquer reserva pendente daquele produto e informa os usuários afetados.
+  -  O objetivo de todo esse mecanismo é garantir que o que o usuário vê no app corresponda ao que existe de fato na loja naquele momento. Um produto que aparece como disponível precisa estar disponível de verdade. 
+Se tiver errof, vai gerar rustração para o consumidor e desconfiança no parceiro.

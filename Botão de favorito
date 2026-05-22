@@ -1,0 +1,11 @@
+O botão de favoritar existe de duas maneiras diferentes dentro do app: na listagem geral de produtos e na tela de detalhe de um produto específico. Em ambos os casos, o comportamento é o mesmo.
+Quando o cliente toca no botão, o produto é salvo na lista de favoritos dele. Isso não reserva o produto nem gera nenhum compromisso financeiro. É apenas uma marcação de interesse.
+A partir do momento em que um produto é favoritado, o sistema monitora de uma forma diferente para aquele usuário específico. 
+Se o produto ainda está disponível, ele aparece com destaque na aba de favoritos. Se ele for reservado por outro usuário ou retirado do catálogo, o sistema remove o destaque e informa o usuário que aquele item não está mais disponível.
+O ponto mais útil do favoritar não é marcar um produto que já está na tela, mas sim criar um histórico de interesse, assim recebendo notificações em tempo real do produto favoritado.
+Se o mesmo produto ou produtos similares da mesma categoria e da mesma loja aparecerem no catálogo em dias futuros, o sistema manda uma notificação para o usuário avisando. 
+A  ideia é simples: se alguém favoritou iogurte grego do Zona Sul do Leblon uma vez, provavelmente vai querer saber quando aparecer de novo.
+O  cliente pode desfavoritar a qualquer momento tocando no mesmo botão, e o sistema para de monitorar aquele produto para ele. A lista de favoritos fica disponível numa aba própria no app, organizada por loja e por categoria, 
+para facilitar a navegação.
+Os favoritos não expiram, mas o sistema faz uma limpeza automática a cada noventa dias para produtos que nunca mais foram cadastrados por nenhum parceiro.
+Nesse caso, o usuário recebe uma mensagem simples dizendo que aquele item foi removido dos favoritos porque não apareceu no catálogo por um longo período.

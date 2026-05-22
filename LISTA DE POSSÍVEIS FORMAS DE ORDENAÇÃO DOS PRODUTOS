@@ -1,0 +1,12 @@
+LISTA DE POSSÍVEIS FORMAS DE ORDENAÇÃO DOS PRODUTOS:
+
+As principais formas de ordenação dos produtos no app incluem 
+• por validade (do mais próximo de vencer ao mais distante)
+• por maior desconto
+• por proximidade do usuário
+• por popularidade (mais visualizados ou comprados)
+• por relevância geral (um score que combina vários fatores)
+• por menor preço final
+• por estoque (menor quantidade primeiro para gerar urgência),
+• por novidade (itens recém adicionados)
+• por mercado/loja específica e também por destaque patrocinado, permitindo que o usuário escolha a forma que melhor atende sua necessidade no momento.

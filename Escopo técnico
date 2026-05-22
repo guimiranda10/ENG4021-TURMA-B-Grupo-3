@@ -1,0 +1,166 @@
+# SalvaData — Escopo Técnico do Projeto
+
+> **Seu mercado mais barato e consciente.**  
+> Projeto acadêmico · Puc-rio . Eng4021 - Grupo 3 · Rio de Janeiro · 2026
+
+---
+
+##  Visão Geral
+
+O **SalvaData** é um aplicativo mobile (Android + iOS) que conecta consumidores a produtos próximos da data de validade, vendidos com desconto pelos supermercados parceiros da Zona Sul do Rio de Janeiro.
+
+O modelo beneficia os três lados do ecossistema:
+
+-  **Consumidor** — economiza nas compras do dia a dia
+-  **Supermercado parceiro** — reduz descarte e recupera margem de produtos que seriam perdidos
+-  **Meio ambiente** — menos desperdício alimentar, menos impacto ambiental
+
+---
+
+## Sumário
+
+- [Parceiros Mapeados](#-parceiros-mapeados)
+- [Métricas de Viabilidade](#-métricas-de-viabilidade)
+- [Funcionalidades do App](#-funcionalidades-do-app)
+- [Painel do Parceiro](#-painel-do-parceiro-web)
+- [Infraestrutura e Dados](#-infraestrutura-e-dados)
+- [Análise de Viabilidade](#-análise-de-viabilidade)
+- [Modelo de Receita](#-modelo-de-receita)
+
+---
+
+## Parceiros Mapeados
+
+**20 supermercados** na região de Ipanema, Leblon, Gávea, Jardim Botânico, Humaitá e São Conrado.
+
+| # | Nome | Bairro | Avaliação |
+|---|------|--------|-----------|
+| 01 | Zona Sul — Prudente de Morais | Ipanema | ⭐ 4.4 |
+| 02 | Zona Sul — Visc. de Piraja 577 | Ipanema | ⭐ 4.4 |
+| 03 | Zona Sul — Barão da Torre | Ipanema | ⭐ 4.6 |
+| 04 | Zona Sul — Visc. de Piraja 504 | Ipanema | ⭐ 4.5 |
+| 05 | Zona Sul — Visc. de Piraja 118 | Ipanema | ⭐ 4.2 |
+| 06 | SuperPrix — Visc. de Piraja 270 | Ipanema | ⭐ 4.0 |
+| 07 | Zona Sul — Carlos Góis | Leblon | ⭐ 4.3 |
+| 08 | Zona Sul — Dias Ferreira *(24h)* | Leblon | ⭐ 4.5 |
+| 09 | Zona Sul — Bartolomeu Mitre | Leblon | ⭐ 4.4 |
+| 10 | Pão de Açúcar — José Linhares | Leblon | ⭐ 4.4 |
+| 11 | Zona Sul — Gen. Artigas | Leblon | ⭐ 4.4 |
+| 12 | Zona Sul Gávea — Rodrigo Otávio | Gávea | ⭐ 4.3 |
+| 13 | Rede Ultra — Marquês de São Vicente | Gávea | ⭐ 4.2 |
+| 14 | Mercado Econômico da Gávea | Gávea | ⭐ 3.8 |
+| 15 | Zona Sul — Rua Jardim Botânico 81 | Jardim Botânico | ⭐ 4.3 |
+| 16 | Zona Sul — Pacheco Leão | Jardim Botânico | ⭐ 4.4 |
+| 17 | Pão de Açúcar — Rua Jardim Botânico 680 | Jardim Botânico | ⭐ 4.1 |
+| 18 | Prime Boutique de Frutas | Jardim Botânico | ⭐ 3.8 |
+| 19 | Zona Sul — Humaitá *(24h)* | Humaitá | ⭐ 4.3 |
+| 20 | Supermarket — Av. Niemeyer | São Conrado | ⭐ 4.2 |
+
+---
+
+##  Métricas de Viabilidade
+
+| Indicador | Valor estimado |
+|-----------|---------------|
+| Parceiros mapeados (fase 1) | 20 supermercados |
+| Desconto médio praticado | ~35% sobre o preço original |
+| Custo inicial ao parceiro | R$ 0 (modelo de comissão) |
+| População na área-alvo | ~3 a 6 milhões de moradores |
+| Comissão por venda (modelo) | ~10% a 15% |
+| Prazo estimado para MVP | 90 dias |
+| Desperdício alimentar evitado (projeção anual) | ~12 toneladas por parceiro |
+
+
+
+##  Funcionalidades do App
+
+### Para o Consumidor
+
+- **Mapa interativo** com os 20 parceiros e produtos disponíveis
+- **Listagem por categoria** (laticínios, carnes, padaria, hortifruti, etc.)
+- **Filtro por data de validade** — quanto mais próximo do vencimento, maior o desconto
+- **Notificações push** de novas ofertas próximas à localização
+- **Sistema de favoritos** — salvar produtos e lojas preferidas
+- **QR Code de validação** — apresentar no caixa para aplicar o desconto
+- **Histórico de compras** e economia acumulada
+
+### Fluxo principal
+
+```
+1. Usuário abre o app
+2. Visualiza produtos com desconto por bairro / categoria
+3. Reserva o produto (opcional)
+4. Vai à loja e apresenta o QR Code
+5. Desconto aplicado no caixa
+6. App registra a transação e calcula a economia
+```
+
+---
+
+##  Painel do Parceiro (Web)
+
+Dashboard web para o gerente do supermercado:
+
+- **Cadastro de produtos** com foto, preço original, desconto e data de validade
+- **Regra automática de desconto** — ex.: 7 dias para vencer = 20% off; 3 dias = 40% off
+- **Geração de QR Code** por produto ou lote
+- **Relatórios de desempenho** — vendas via app, produtos salvos do descarte
+- **Exportação CSV** para conciliação financeira
+- **Alertas automáticos** de produtos próximos do vencimento não cadastrados
+
+---
+
+## Infraestrutura e Dados
+
+| Componente | Tecnologia | Finalidade |
+|---|---|---|
+| Hospedagem Back-end | AWS EC2 / Vercel | Servidor da API |
+| Banco de dados | PostgreSQL (PlanetScale) | Usuários, produtos, transações |
+| Armazenamento de imagens | Amazon S3 | Fotos dos produtos |
+| Notificações push | Firebase Cloud Messaging | Alertas para usuários |
+| Autenticação | JWT + Refresh Token | Segurança de sessão |
+| CI/CD | GitHub Actions | Deploy automático |
+| Monitoramento | Sentry | Erros e performance |
+| Mapas | Google Maps SDK | Localização dos parceiros |
+
+---
+
+##  Análise de Viabilidade
+
+### Pontos Fortes
+
+-  Problema **real e recorrente** em todo supermercado do mundo
+-  Consumidor tem **incentivo financeiro claro** (economia de 20% a 50%)
+-  Parceiro tem **incentivo financeiro claro** (menos descarte, menos prejuízo)
+-  Área-alvo (Zona Sul do RJ) tem **alta densidade populacional e poder aquisitivo**
+-  Tendência global crescente de **economia circular e anti-desperdício**
+-  **Baixo custo de entrada para o parceiro** — sem integração complexa no MVP
+-  Modelo replicável para **outras regiões e cidades**
+-  Alinhado com metas de **ODS 12 da ONU** (consumo e produção responsáveis)
+
+### Desafios e Riscos
+
+| Risco | Probabilidade | Mitigação |
+|-------|--------------|-----------|
+| Parceiros não atualizarem produtos manualmente | Alta | Alertas automáticos + suporte dedicado |
+| Integração com ERP/estoque dos mercados | Média | Fase 2 — MVP começa com cadastro manual |
+| Concorrência com Rappi/iFood em promoções | Média | Nicho específico (validade) diferencia o produto |
+| Dificuldade de aquisição de usuários | Média | Marketing de boca a boca + parcerias com os próprios mercados |
+| Produto vencer antes de ser vendido via app | Baixa | Algoritmo de urgência + notificação em tempo real |
+
+---
+
+##  Modelo de Receita
+
+```
+Receita Principal
+└── Comissão de 10% a 15% sobre cada venda concluída via app
+
+Receitas Complementares
+├── Plano Premium para parceiros
+│   └── Destaque na listagem, relatórios avançados
+├── Assinatura mensal para consumidor
+│   └── Alertas prioritários, acesso antecipado a ofertas
+└── Dados agregados (anonimizados)
+    └── Tendências de vencimento para distribuidores e fabricantes
+```

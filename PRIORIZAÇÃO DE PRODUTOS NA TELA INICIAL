@@ -1,0 +1,7 @@
+PRIORIZAÇÃO DE PRODUTOS NA TELA INICIAL
+
+A ideia é implementar um sistema de priorização na tela inicial baseado principalmente na proximidade da validade dos produtos, complementado por fatores como desconto,
+distância, popularidade e estoque, garantindo que os itens mais urgentes apareçam primeiro.
+
+Além disso, o app incluiria um modelo de “destaque patrocinado”, onde mercados podem investir um valor para aumentar a visibilidade de certos produtos, porém com impacto limitado e controlado
+dentro do algoritmo, mantendo o foco na sustentabilidade e transparência ao usuário, que verá esses itens identificados como patrocinados sem comprometer a relevância geral das ofertas.

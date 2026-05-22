@@ -1,0 +1,10 @@
+Quando o cliente abre o app e não tem nenhum produto disponível no momento, seja porque todos os itens foram reservados, porque nenhum mercado cadastrou produtos naquele dia,
+ou porque os prazos ainda estão longes demais para gerar desconto relevante, o sistema exibe uma tela simples, sem animações exageradas.
+O texto que aparece é o seguinte:
+"Nenhum produto disponível agora. Os gerentes atualizam o catálogo ao longo do dia, geralmente de manhã cedo, no início da tarde ou antes do fechamento. Se você ativar as notificações, a gente te avisa assim que algum produto do seu interesse 
+aparecer."
+Abaixo dessa mensagem, há dois botões, o primeiro permite ativar as notificações diretamente dali, sem precisar ir até as configurações do telefone. 
+O segundo permite ao usuário marcar categorias de produtos que ele tem interesse, para que o sistema priorize esses itens nos alertas. Separados por categorias, como laticínios, embutidos, padaria, etc. 
+Se o usuário já tiver notificações ativas e produtos favoritados, a mensagem muda levemente:
+"Nenhum dos seus produtos favoritos está disponível agora. Assim que algum deles aparecer, você recebe um aviso."
+

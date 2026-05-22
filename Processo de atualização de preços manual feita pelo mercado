@@ -1,0 +1,7 @@
+Processo de atualização de preços em caso de mudança manual feita pelo mercado:
+
+Quando o mercado decide alterar manualmente o preço de um produto, essa mudança é atualizada imediatamente no sistema do app,
+garantindo que o novo valor já comece a valer o quanto antes.
+A partir disso, o próprio aplicativo recalcula automaticamente informações importantes, como o desconto e a prioridade daquele item na tela inicial, 
+fazendo com que ele possa subir ou descer nas listas de acordo com sua nova atratividade
+em pouco tempo, os usuários já passam a ver o preço atualizado de forma consistente, sem confusão, enquanto o sistema também registra essa alteração para manter um histórico organizado e permitir análises futuras.

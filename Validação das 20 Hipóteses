@@ -1,0 +1,61 @@
+### Validação de Hipóteses: Plataforma de Resgate de Alimentos
+
+**1. Consumidores estão dispostos a comprar produtos próximos ao vencimento se o desconto for de quantos %?**
+**Feedback:** O ponto de inflexão (*sweet spot*) geralmente se encontra entre **40% e 70%**. Descontos menores que 30% não compensam o risco percebido da validade curta. Descontos acima de 70% podem desvalorizar excessivamente o produto ou gerar desconfiança sobre a adequação para consumo.
+
+**2. A principal motivação do usuário é a economia financeira e status, sendo o apelo sustentável um benefício secundário.**
+**Feedback:** Parcialmente validada. A **economia financeira** é, sem dúvida, o principal motor de aquisição e retenção. No entanto, o "status" tradicional não se aplica aqui; na verdade, historicamente existia um estigma. O que ocorre hoje é o status de *smart shopper* (comprador inteligente). A sustentabilidade é, de fato, um benefício secundário para a massa de usuários.
+
+**3. Existe uma barreira de desconfiança em relação à qualidade de itens frescos (carnes/laticínios)?**
+**Feedback:** Validada. O risco sanitário percebido em proteínas animais e laticínios é muito superior ao de produtos secos ou de panificação. Exigirá garantias claras de refrigeração e transparência por parte do lojista para quebrar essa objeção.
+
+**4. O modelo de "Sacola Surpresa" gera maior engajamento e recorrência do que a escolha individual de itens?**
+**Feedback:** Validada. A "Sacola Surpresa" introduz gamificação (o efeito de recompensa variável) e resolve um problema operacional massivo para o mercado: a necessidade de catalogar cada item individualmente. 
+
+**5. O público-alvo principal são jovens adultos (20-35 anos) que moram sozinhos e buscam praticidade e baixo custo.**
+**Feedback:** Validada. Este perfil (Millennials e Gen Z) possui alta adoção tecnológica, orçamento mais restrito para alimentação fora do lar e maior consciência ambiental, formando os *early adopters* ideais.
+
+**6. Supermercados preferem vender itens via app do que arcar com o custo de descarte e logística reversa.**
+**Feedback:** Validada. O desperdício gera perda dupla: o custo da mercadoria não vendida (CMV) e o custo de descarte de resíduos orgânicos. Qualquer recuperação financeira de um produto que iria para o lixo tem impacto direto na margem de lucro.
+
+**7. A maior dificuldade dos mercados poderia ser a atualização de estoque em tempo real, levando a erros de disponibilidade no app.**
+**Feedback:** Altamente validada. Sistemas de ERP de supermercados são frequentemente lentos ou dessincronizados do inventário físico. É por isso que modelos de "Sacolas" por quantidade (ex: "Temos 5 sacolas disponíveis hoje") funcionam melhor do que listar itens específicos ("Temos 3 iogurtes de morango").
+
+**8. Pequenos mercados de bairro têm maior interesse no projeto do que grandes redes devido à agilidade na tomada de decisão.**
+**Feedback:** Validada. Pequenos varejistas fecham parcerias mais rápido (B2B sales cycle curto). Porém, as grandes redes têm a maior "dor" de volume de desperdício e metas de ESG para cumprir. Uma estratégia *go-to-market* híbrida é recomendada.
+
+**9. O projeto pode reduzir o desperdício de alimentos do varejista em grande escala nos primeiros seis meses.**
+**Feedback:** Requer cautela. Depende da densidade de usuários no raio de atuação da loja. A operação leva alguns meses para calibrar a quantidade exata de oferta que a demanda local consegue absorver. 
+
+**10. Um raio de entrega/retirada de 3km a 5km é o limite máximo para manter a viabilidade do frescor dos alimentos.**
+**Feedback:** Validada. Além do frescor, a questão é a viabilidade econômica: o custo do frete não pode inviabilizar o desconto. Para retirada (takeaway), o usuário raramente se desloca mais de 3km.
+
+**11. O uso de pagamento in-app é essencial para evitar desistências no momento da retirada física.**
+**Feedback:** Altamente validada. O pagamento antecipado gera comprometimento. Sem ele, o índice de *no-show* (não comparecimento) destrói o modelo, pois o lojista separou o item perecível que, ao final do dia, terá que ser jogado fora.
+
+**12. O modelo de negócio é resiliente a crises econômicas, pois a busca por alimentos mais baratos aumenta em períodos de inflação alta.**
+**Feedback:** Validada. É um modelo de negócio contracíclico. Em momentos de inflação ou crise de poder de compra, a base de usuários tende a crescer organicamente.
+
+**13. A busca pela sustentabilidade aumenta a fidelidade dos clientes regulares daquele estabelecimento.**
+**Feedback:** Validada. Ações claras contra o desperdício melhoram o *Brand Equity* (valor da marca) e geram simpatia na comunidade local.
+
+**14. Datas comemorativas geram picos de desperdício que o app pode absorver com campanhas específicas.**
+**Feedback:** Validada. Panetones pós-Natal e ovos de Páscoa danificados ou não vendidos são exemplos clássicos. O app pode ser a principal via de escoamento rápido de estoque sazonal.
+
+**15. O faturamento com anúncios de marcas que querem se posicionar como sustentáveis pode ser uma fonte de receita secundária viável.**
+**Feedback:** Plausível, mas no médio/longo prazo. Modelos de publicidade (*AdTech*) exigem um MAU (Monthly Active Users) massivo para atrair grandes orçamentos publicitários. Não deve ser o foco da monetização no ano 1.
+
+**16. Itens de padaria e hortifruti têm maior aceitação do que itens de açougue, mesmo com descontos iguais.**
+**Feedback:** Validada. Conforme a hipótese 3, o risco de intoxicação alimentar percebido no hortifruti/padaria é muito menor, resultando em menor atrito na decisão de compra.
+
+**17. Usuários de alta renda podem também utilizar o app, motivados pelo senso de propósito e não pela economia de dinheiro.**
+**Feedback:** Validada. Existe um forte fator de "caça ao tesouro" (gamificação) e o lado aspiracional do *Zero Waste* que atrai usuários de classes A e B, especialmente em padarias artesanais e empórios premium.
+
+**18. Mercados preferem vender "kits temáticos" (ex: kit café da manhã) do que itens isolados para acelerar o giro de estoque parado.**
+**Feedback:** Validada do ponto de vista de ticket médio. Contudo, montar kits exige tempo (mão de obra). A solução operacional ideal ainda é a "Sacola Surpresa", que absorve itens sortidos sem a necessidade de uma curadoria temática rigorosa.
+
+**19. O horário de maior volume de vendas será entre 17h e 19h, quando as pessoas estão voltando do trabalho e pensando no jantar.**
+**Feedback:** Validada. O fim da tarde e o início da noite combinam o fluxo de retorno para casa (*commuting*) com o horário em que padarias e mercados fecham seus turnos diurnos e identificam o excedente de produção.
+
+**20. Fotos reais dos produtos reduzem o número de reclamações e devoluções.**
+**Feedback:** Inviável operacionalmente. Exigir que o funcionário do mercado tire foto de um pão amassado ou de um tomate maduro gera atrito operacional extremo. O mercado não vai aderir. A solução ideal é usar fotos ilustrativas de alta qualidade para as lojas, mas ter **descrições muito claras e honestas** sobre o que o cliente pode encontrar, gerenciando a expectativa antes da compra.

@@ -1,0 +1,14 @@
+  -  Controle e atualização automática de produtos que atingem a data de vencimento
+O sistema verifica continuamente a data de validade de cada produto cadastrado pelos parceiros (no caso os supermercados).
+Essa verificação acontece em segundo plano, com uma simples calculadora que calcula a diferença do dia em que o produto foi cadastrado até o seu vencimento. Sem que o gerente do supermercado precise fazer nada manualmente depois que o produto já foi cadastrado.
+Quando um produto ainda tem sete dias ou mais até o vencimento, ele aparece normalmente na listagem do app, com o percentual de desconto padrão definido pelo gerente. 
+Conforme esse prazo vai diminuindo, o sistema recalcula o desconto automaticamente. Com menos de sete dias, o desconto sobe. Com menos de três dias, sobe mais. Com menos de vinte e quatro horas,
+o produto entra numa faixa de urgência e o desconto mínimo aplicado passa a ser de 40%, independentemente do que o parceiro tenha configurado originalmente.
+No momento em que a data de vencimento é atingida, o produto é removido do catálogo visível para o consumidor de forma imediata. Ele não desaparece da base de dados do parceiro,
+mas deixa de ser exibido e não pode mais ser reservado ou comprado. O parceiro recebe uma notificação no painel informando que aquele item foi retirado automaticamente por ter chegado ao fim do prazo.
+Se houver alguma reserva ativa no momento em que o produto vence, ela é cancelada pelo sistema e o consumidor recebe reembolso integral. Uma mensagem é enviada para ele explicando o que aconteceu,
+apenas dizendo que o produto não está mais disponível para retirada e que o valor pago já foi estornado.
+O parceiro tem a opção de ajustar manualmente o prazo de desconto progressivo pelo painel, caso queira começar a oferecer desconto mais cedo ou mais tarde do que o padrão do sistema.
+Mas mesmo que ele não mexa em nada, o sistema funciona sozinho com os parâmetros padrão.
+
+(Parceiro é o mercado que usar o SalvaData)
