@@ -54,3 +54,9 @@ def login_view(request):
             mensagem = 'E-mail ou senha incorretos.'
 
     return render(request, 'login.html', {'mensagem': mensagem})
+
+def perfil_view(request):
+    return render(request, 'perfil.html')
+
+def produto_view(request):
+    return render(request, 'produto.html')
