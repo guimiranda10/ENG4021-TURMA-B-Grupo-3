@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+from SaveMarket.Produtos.models import Produto, MercadoParceiro, Favorito
 from django.db.models import Q
 from django.contrib.auth import authenticate, login
 
@@ -52,7 +53,7 @@ def produto_view(request, pk=None):
 
 def mercado_view(request, pk):
     mercado = get_object_or_404(MercadoParceiro, pk=pk)
-    produtos = mercado.produtos.all().order_by('validade')
+    produtos = mercado.produtos.filter(validade__gte=timezone.now().date()).order_by('validade')
     return render(request, 'mercado.html', {'mercado': mercado, 'produtos': produtos})
 
 @staff_member_required  # só admin acessa
@@ -94,3 +95,13 @@ def login_view(request):
 @login_required
 def perfil_view(request):
     return render(request, 'perfil.html')
+
+@login_required
+def alternar_favorito(request, produto_id):
+    produto = get_object_or_404(Produto, pk=produto_id)
+    favorito, criado = Favorito.objects.get_or_create(usuario=request.user, produto=produto)
+    
+    if not criado:
+        favorito.delete()
+        
+    return redirect(request.META.get('HTTP_REFERER', 'home'))

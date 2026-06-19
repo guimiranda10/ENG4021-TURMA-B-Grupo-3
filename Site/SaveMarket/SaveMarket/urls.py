@@ -32,4 +32,5 @@ urlpatterns = [
     path('produto/', views.produto_view, name='produto'),
     path('produto/<int:pk>/', views.produto_view, name='produto_detalhe'),
     path('mercado/<int:pk>/', views.mercado_view, name='mercado'),
+    path('produto/<int:produto_id>/favoritar/', views.alternar_favorito, name='alternar_favorito'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
