@@ -669,3 +669,27 @@ a {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* ── FILTRO POR DESCONTO ── */
+.filtros-desconto {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filtros-desconto a {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #9FE1CB;
+    border-radius: 999px;
+    color: #0D6B57;
+    background-color: white;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.filtros-desconto a:hover {
+    background-color: #1D9E75;
+    color: white;
+}
+

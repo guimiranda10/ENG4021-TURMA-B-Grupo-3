@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Mercado</title>
+</head>
+<body>
+
+    <h1>Dashboard do Mercado Parceiro</h1>
+
+    <h2>Resumo</h2>
+
+    <p>Total de produtos cadastrados: {{ total_produtos }}</p>
+
+    <p>Produtos com risco de descarte: {{ total_risco }}</p>
+
+    <hr>
+
+    <h2>Produtos próximos do vencimento</h2>
+
+    <ul>
+        {% for produto in produtos_risco %}
+            <li>
+                {{ produto.titulo }} - vence em {{ produto.validade }}
+            </li>
+        {% empty %}
+            <li>Nenhum produto em risco.</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h2>Todos os produtos</h2>
+
+    <ul>
+        {% for produto in produtos %}
+            <li>
+                {{ produto.titulo }} - {{ produto.preco_desconto }}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

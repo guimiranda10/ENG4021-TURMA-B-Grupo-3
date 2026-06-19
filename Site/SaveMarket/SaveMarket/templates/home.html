@@ -124,7 +124,18 @@
             </div>
         </section>
         {% endif %}
+        <section class="section">
+    <div class="section-header">
+        <h2>Filtrar por desconto</h2>
+        <a href="{% url 'home' %}" class="ver-tudo">Limpar filtro</a>
+    </div>
 
+    <div class="filtros-desconto">
+        <a href="?desconto=20" class="btn-nav">20% ou mais</a>
+        <a href="?desconto=30" class="btn-nav">30% ou mais</a>
+        <a href="?desconto=50" class="btn-nav">50% ou mais</a>
+    </div>
+    </section>
         <!-- PRODUTOS -->
         <section class="section">
             <div class="section-header">
