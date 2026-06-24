@@ -1,44 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Produto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes - {{ produto.titulo }}</title>
 </head>
-<body>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
 
-  <header>
-    <h1>Detalhes do Produto</h1>
-  </header>
+    <main style="max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        
+        <a href="{% url 'home' %}" style="text-decoration: none; color: #00B86B; font-weight: bold;">← Voltar para Ofertas</a>
 
-  <main>
+        <section style="margin-top: 20px;">
+            <h2 style="margin-bottom: 5px;">{{ produto.titulo }}</h2>
+            <p style="color: #666; margin-top: 0; font-size: 14px;">Vendido por: <strong>{{ produto.mercado.nome }}</strong></p>
 
-    <section>
-      <h2>Leite Integral 1L</h2>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+                <p style="text-decoration: line-through; color: #999;">De: R$ {{ produto.preco_original }}</p>
+                <p style="color: #00B86B; font-size: 24px; font-weight: bold; margin: 5px 0;">Por: R$ {{ produto.preco_desconto }}</p>
+                <p><strong>Desconto:</strong> {{ produto.percentual_desconto }}%</p>
+                <p style="color: #ef4444; font-weight: bold;">Vence em: {{ produto.validade|date:"d/m/Y" }}</p>
+            </div>
 
-      <img src="https://via.placeholder.com/200" alt="Imagem do produto Leite Integral">
+            <hr style="border: 1px solid #eee; margin: 30px 0;">
+            <h3>Avaliações dos Usuários</h3>
 
-      <p><strong>Descrição:</strong> Leite integral próximo da validade, próprio para consumo.</p>
-      <p><strong>Categoria:</strong> Laticínios</p>
+            <form method="POST" style="background: #f0fdf4; padding: 15px; border-radius: 8px; border: 1px solid #bbf7d0; margin-bottom: 20px;">
+                {% csrf_token %}
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Sua Nota:</label>
+                <select name="nota" required style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; width: 100%; margin-bottom: 10px;">
+                    <option value="5">⭐⭐⭐⭐⭐ Excelente</option>
+                    <option value="4">⭐⭐⭐⭐ Muito Bom</option>
+                    <option value="3">⭐⭐⭐ Bom</option>
+                    <option value="2">⭐⭐ Ruim</option>
+                    <option value="1">⭐ Péssimo</option>
+                </select>
 
-      <p><strong>Preço original:</strong> R$ 6,50</p>
-      <p><strong>Preço promocional:</strong> R$ 4,50</p>
-      <p><strong>Desconto:</strong> 30%</p>
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Comentário (opcional):</label>
+                <textarea name="comentario" rows="3" style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px; box-sizing: border-box;"></textarea>
+                
+                <button type="submit" style="background: #00B86B; color: white; border: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; cursor: pointer; width: 100%;">Enviar Avaliação</button>
+            </form>
 
-      <p><strong>Data de validade:</strong> 30/06/2026</p>
-      <p><strong>Quantidade disponível:</strong> 12 unidades</p>
-
-      <p><strong>Mercado responsável:</strong> Supermercado Econômico</p>
-
-      <button>Adicionar ao Carrinho</button>
-      <button>Favoritar</button>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Marketplace de Produtos Próximos da Validade</p>
-  </footer>
-
+            {% if produto.avaliacoes.all %}
+                {% for avaliacao in produto.avaliacoes.all %}
+                    <div style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
+                        <span style="color: #f59e0b; font-size: 16px;">
+                            {% if avaliacao.nota == 5 %}⭐⭐⭐⭐⭐{% elif avaliacao.nota == 4 %}⭐⭐⭐⭐{% elif avaliacao.nota == 3 %}⭐⭐⭐{% elif avaliacao.nota == 2 %}⭐⭐{% else %}⭐{% endif %}
+                        </span>
+                        <span style="color: #888; font-size: 11px; margin-left: 10px;">{{ avaliacao.data_avaliacao|date:"d/m/Y" }}</span>
+                        {% if avaliacao.comentario %}
+                            <p style="margin: 5px 0 0 0; font-size: 14px; color: #444;">"{{ avaliacao.comentario }}"</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p style="color: #888; font-size: 14px;">Nenhuma avaliação para este produto ainda. Seja o primeiro!</p>
+            {% endif %}
+            
+        </section>
+    </main>
 </body>
 </html>

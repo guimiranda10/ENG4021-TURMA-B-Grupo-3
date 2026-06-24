@@ -39,8 +39,6 @@
 </header>
 
 <main>
-
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-text">
             <span class="hero-tag">Menos desperdício, mais economia</span>
@@ -61,8 +59,6 @@
     </section>
 
     <div class="page-body">
-
-        <!-- CATEGORIAS -->
         <section class="section" id="categorias">
             <div class="section-header">
                 <h2>Comprar por categoria</h2>
@@ -104,7 +100,6 @@
             </div>
         </section>
 
-        <!-- MERCADOS PARCEIROS -->
         {% if mercados %}
         <section class="section">
             <div class="section-header">
@@ -125,7 +120,6 @@
         </section>
         {% endif %}
 
-        <!-- PRODUTOS -->
         <section class="section">
             <div class="section-header">
                 <h2><i class="fa-solid fa-clock"></i> Vence em breve</h2>
@@ -135,6 +129,8 @@
                         <option value="validade" {% if request.GET.sort == 'validade' or not request.GET.sort %}selected{% endif %}>Por validade</option>
                         <option value="desconto" {% if request.GET.sort == 'desconto' %}selected{% endif %}>Maior desconto</option>
                         <option value="preco" {% if request.GET.sort == 'preco' %}selected{% endif %}>Menor preço</option>
+                        
+                        <option value="recentes" {% if request.GET.sort == 'recentes' %}selected{% endif %}>Mais recentes</option>
                     </select>
                 </div>
             </div>
@@ -168,7 +164,11 @@
                         <p class="produto-mercado">
                             <i class="fa-solid fa-store"></i> {{ produto.mercado.nome }}
                         </p>
-                        <h3 class="produto-titulo">{{ produto.titulo }}</h3>
+                        
+                        <a href="{% url 'produto_view' produto.pk %}" style="text-decoration: none; color: inherit;">
+                            <h3 class="produto-titulo" style="cursor: pointer; transition: color 0.2s;">{{ produto.titulo }}</h3>
+                        </a>
+                        
                         <div class="produto-precos">
                             <span class="preco-novo">R$ {{ produto.preco_desconto|floatformat:2 }}</span>
                             <span class="preco-antigo">R$ {{ produto.preco_original|floatformat:2 }}</span>
@@ -194,7 +194,6 @@
                 {% endfor %}
             </div>
         </section>
-
     </div>
 </main>
 
@@ -218,86 +217,31 @@
     </div>
     <div class="footer-bottom">
         <p>&copy; 2025 SaveMarket</p>
-<section class="ofertas" style="margin-top: 30px; padding: 0 20px 80px 20px;">
-            <h2 style="margin-bottom: 15px; font-size: 1.2rem; color: #333;">Ofertas Disponíveis</h2>
-
-            {% if ofertas %}
-                
-                <div style="display: flex; flex-direction: column; gap: 15px;">
-                    {% for produto in ofertas %}
-                        
-                        <div style="border: 2px solid {% if produto.vence_hoje %}#ef4444{% else %}#ddd{% endif %}; border-radius: 12px; padding: 15px; display: flex; gap: 15px; background: #fff; {% if produto.vence_hoje %}box-shadow: 0 0 8px rgba(239, 68, 68, 0.2);{% endif %}">
-                            
-                            <div style="width: 80px; height: 80px; background-color: #f0f0f0; border-radius: 8px; flex-shrink: 0;"></div>
-                            
-                            <div style="flex: 1;">
-                                
-                                {% if produto.vence_hoje %}
-                                    <span style="background-color: #ef4444; color: white; padding: 3px 6px; border-radius: 4px; font-size: 10px; font-weight: bold; text-transform: uppercase; display: inline-block; margin-bottom: 5px;">Vence Hoje!</span>
-                                {% endif %}
-                                
-                                <h3 style="margin: 0 0 5px 0; font-size: 1rem; color: #333;">{{ produto.titulo }}</h3>
-                                
-                                <p style="color: #f59e0b; font-size: 11px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 4px;">
-                                    <i class="fa-solid fa-circle-exclamation"></i> Próprio para consumo, próximo ao vencimento.
-                                </p>
-                                
-                                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                                    <div>
-                                        <p style="text-decoration: line-through; color: #999; font-size: 12px; margin: 0;">R$ {{ produto.preco_original }}</p>
-                                        <p style="color: #00B86B; font-weight: bold; font-size: 18px; margin: 0;">R$ {{ produto.preco_desconto }}</p>
-                                    </div>
-                                    <button style="background-color: #00B86B; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer;">Salvar</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    {% endfor %}
-                </div>
-
-            {% else %}
-                
-                <div style="text-align: center; padding: 40px 20px; background-color: #f9f9f9; border-radius: 12px; border: 1px dashed #ccc; margin-top: 20px;">
-                    <span style="font-size: 40px; display: block; margin-bottom: 10px;">😕</span>
-                    <h3 style="color: #333; margin-bottom: 5px; font-size: 1.1rem;">Nenhum produto encontrado</h3>
-                    <p style="color: #777; font-size: 13px; margin: 0;">Tente pesquisar com outras palavras ou remova os filtros de busca.</p>
-                    <a href="{% url 'home' %}" style="display: inline-block; margin-top: 15px; color: #00B86B; font-weight: bold; text-decoration: none;">Limpar buscas</a>
-                </div>
-
-            {% endif %}
-
-        </section>
-        <nav class="menu-inferior">
-
-            <div class="menu-item ativo">
-                <i class="fa-solid fa-house"></i>
-                <p>Home</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-solid fa-table-cells-large"></i>
-                <p>Categorias</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <p>Carrinho</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-regular fa-clipboard"></i>
-                <p>Pedidos</p>
-            </div>
-
-            <div class="menu-item">
-                <i class="fa-regular fa-user"></i>
-                <p>Perfil</p>
-            </div>
-
-        </nav>
-
     </div>
 </footer>
+
+<nav class="menu-inferior">
+    <div class="menu-item ativo">
+        <i class="fa-solid fa-house"></i>
+        <p>Home</p>
+    </div>
+    <div class="menu-item">
+        <i class="fa-solid fa-table-cells-large"></i>
+        <p>Categorias</p>
+    </div>
+    <div class="menu-item">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <p>Carrinho</p>
+    </div>
+    <div class="menu-item">
+        <i class="fa-regular fa-clipboard"></i>
+        <p>Pedidos</p>
+    </div>
+    <div class="menu-item">
+        <i class="fa-regular fa-user"></i>
+        <p>Perfil</p>
+    </div>
+</nav>
 
 <script>
 function applySort(value) {
