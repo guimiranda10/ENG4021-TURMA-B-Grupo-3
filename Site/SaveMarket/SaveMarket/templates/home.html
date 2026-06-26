@@ -198,6 +198,9 @@
                             <span class="preco-antigo">R$ {{ produto.preco_original|floatformat:2 }}</span>
                             <span class="desconto-pill">-{{ produto.percentual_desconto }}%</span>
                         </div>
+                        <p class="produto-estoque">
+                            Estoque: {{ produto.estoque }} unidades
+                        </p>
                     </div>
 
                     <div class="produto-footer">
