@@ -227,11 +227,15 @@ def carrinho_view(request):
 def adicionar_carrinho(request, pk):
     produto = get_object_or_404(Produto, pk=pk)
     carrinho = request.session.get('carrinho', {})
- 
+
     pk_str = str(pk)
     carrinho[pk_str] = carrinho.get(pk_str, 0) + 1
- 
     request.session['carrinho'] = carrinho
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        total_itens = sum(carrinho.values())
+        return JsonResponse({'sucesso': True, 'total_itens': total_itens})
+
     messages.success(request, f'"{produto.titulo}" adicionado ao carrinho.')
     return redirect('home')
  

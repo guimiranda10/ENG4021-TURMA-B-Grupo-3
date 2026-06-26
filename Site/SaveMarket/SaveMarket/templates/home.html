@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SaveMarket</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'css/toast.css' %}">
 </head>
 <body>
 
 <header class="navbar">
     <div class="navbar-inner">
-        <div class="brand">
+        <a href="{% url 'home' %}" class="brand">
             <span class="brand-icon">🏷️</span>
             <span class="brand-name">Save<strong>Market</strong></span>
-        </div>
+        </a>
 
         <form class="search-bar" method="get" action="{% url 'home' %}">
             <span class="icon-emoji">🔍</span>
@@ -183,7 +183,7 @@
                             🏬 {{ produto.mercado.nome }}
                         </p>
 
-                        <a href="{% url 'produto_view' produto.pk %}" class="produto-titulo-link">
+                        <a href="{% url 'produto_detalhe' produto.pk %}" class="produto-titulo-link">
                             <h3 class="produto-titulo">{{ produto.titulo }}</h3>
                         </a>
 
@@ -201,12 +201,10 @@
                     </div>
 
                     <div class="produto-footer">
-                        <form method="post" action="{% url 'adicionar_carrinho' produto.pk %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn-adicionar">
-                                🛒 Adicionar
-                            </button>
-                        </form>
+                        <button type="button" class="btn-adicionar"
+                                onclick="adicionarCarrinho({{ produto.pk }}, this)">
+                            🛒 Adicionar
+                        </button>
                     </div>
                 </div>
                 {% empty %}
@@ -246,11 +244,88 @@
     </div>
 </footer>
 
+<!-- CONTAINER DE NOTIFICAÇÕES (TOAST) -->
+<div id="toast-container"></div>
+
 <script>
 function applySort(value) {
     const url = new URL(window.location.href);
     url.searchParams.set('sort', value);
     window.location.href = url.toString();
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function mostrarToast(mensagem, tipo) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = 'toast toast-' + tipo;
+    const icone = tipo === 'sucesso' ? '✓' : '⚠️';
+    toast.innerHTML = '<span class="toast-icone">' + icone + '</span>' + mensagem;
+    container.appendChild(toast);
+
+    // anima entrada
+    requestAnimationFrame(() => toast.classList.add('toast-show'));
+
+    // remove depois de 3s
+    setTimeout(() => {
+        toast.classList.remove('toast-show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+function adicionarCarrinho(produtoId, botao) {
+    fetch(`/carrinho/adicionar/${produtoId}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(response => {
+        if (response.redirected) {
+            // não logado -> manda pro login
+            window.location.href = response.url;
+            return null;
+        }
+        return response.json().catch(() => null);
+    })
+    .then(data => {
+        if (data && data.sucesso) {
+            mostrarToast(data.mensagem || 'Produto adicionado ao carrinho!', 'sucesso');
+            const textoOriginal = botao.innerHTML;
+            botao.innerHTML = '✓ Adicionado';
+            botao.style.background = '#0F6E56';
+            botao.disabled = true;
+            setTimeout(() => {
+                botao.innerHTML = textoOriginal;
+                botao.style.background = '';
+                botao.disabled = false;
+            }, 1500);
+        } else if (data && !data.sucesso) {
+            mostrarToast(data.mensagem || 'Produto fora de estoque.', 'erro');
+        } else if (data === null) {
+            // resposta não-JSON inesperada, mas sem redirect
+            return;
+        }
+    })
+    .catch(err => {
+        console.error('Erro:', err);
+        mostrarToast('Erro ao adicionar ao carrinho. Tente novamente.', 'erro');
+    });
 }
 </script>
 

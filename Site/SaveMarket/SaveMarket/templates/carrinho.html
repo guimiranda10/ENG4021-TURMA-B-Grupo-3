@@ -7,22 +7,28 @@
     <title>Carrinho — SaveMarket</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/carrinho.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
+<!-- NAVBAR (mesma da home) -->
 <header class="navbar">
     <div class="navbar-inner">
-        <div class="brand">
-            <i class="fa-solid fa-tag brand-icon"></i>
+        <a href="{% url 'home' %}" class="brand">
+            <span class="brand-icon">🏷️</span>
             <span class="brand-name">Save<strong>Market</strong></span>
-        </div>
+        </a>
+
+        <form class="search-bar" method="get" action="{% url 'home' %}">
+            <span class="icon-emoji">🔍</span>
+            <input type="text" name="q" placeholder="Buscar produtos perto do vencimento...">
+            <button type="submit">Buscar</button>
+        </form>
 
         <nav class="nav-links">
-            <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Início</a>
-            <a href="{% url 'carrinho' %}"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
+            <a href="{% url 'home' %}"><span class="icon-emoji">🏠</span> Início</a>
+            <a href="{% url 'carrinho' %}"><span class="icon-emoji">🛒</span> Carrinho</a>
             <a href="{% url 'perfil' %}" class="btn-nav">
-                <i class="fa-regular fa-user"></i> {{ user.first_name|default:user.username }}
+                <span class="icon-emoji">👤</span> {{ user.first_name|default:user.username }}
             </a>
         </nav>
     </div>
@@ -37,7 +43,7 @@
             {% endfor %}
         {% endif %}
 
-        <h1 class="page-title"><i class="fa-solid fa-cart-shopping"></i> Meu carrinho</h1>
+        <h1 class="page-title">🛒 Meu carrinho</h1>
 
         {% if itens %}
             <div class="cart-layout">
@@ -49,20 +55,14 @@
                             {% if item.produto.imagem %}
                                 <img src="{{ item.produto.imagem.url }}" alt="{{ item.produto.titulo }}">
                             {% else %}
-                                <div class="produto-img-placeholder">
-                                    <i class="fa-solid fa-box-open"></i>
-                                </div>
+                                <div class="produto-img-placeholder">📦</div>
                             {% endif %}
                         </div>
 
                         <div class="cart-item-info">
                             <strong>{{ item.produto.titulo }}</strong>
-                            <span class="cart-item-mercado">
-                                <i class="fa-solid fa-store"></i> {{ item.produto.mercado.nome }}
-                            </span>
-                            <span class="cart-item-validade">
-                                Vence em {{ item.produto.validade|date:"d/m/Y" }}
-                            </span>
+                            <span class="cart-item-mercado">🏬 {{ item.produto.mercado.nome }}</span>
+                            <span class="cart-item-validade">Vence em {{ item.produto.validade|date:"d/m/Y" }}</span>
                         </div>
 
                         <form method="post" action="{% url 'atualizar_carrinho' item.produto.pk %}" class="cart-item-qty">
@@ -77,9 +77,10 @@
                             <span class="preco-antigo">R$ {{ item.subtotal_original|floatformat:2 }}</span>
                         </div>
 
-                        <a href="{% url 'remover_carrinho' item.produto.pk %}" class="btn-remover" title="Remover">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                        <form action="{% url 'remover_carrinho' item.produto.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-remover" title="Remover">🗑️</button>
+                        </form>
                     </div>
                     {% endfor %}
                 </div>
@@ -102,8 +103,7 @@
                     </div>
 
                     <div class="savings-box">
-                        <i class="fa-solid fa-piggy-bank"></i>
-                        Você está economizando <strong>R$ {{ economia|floatformat:2 }}</strong>!
+                        🐷 Você está economizando <strong>&nbsp;R$ {{ economia|floatformat:2 }}</strong>!
                     </div>
 
                     <button class="btn-adicionar btn-full" disabled>
@@ -114,15 +114,39 @@
             </div>
         {% else %}
             <div class="empty-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="empty-icon">🛒</span>
                 <h2>Seu carrinho está vazio</h2>
                 <p>Explore produtos com desconto perto de você.</p>
-                <a href="{% url 'home' %}" class="btn-adicionar">Ver produtos</a>
+                <a href="{% url 'home' %}" class="btn-nav btn-primary">Ver produtos</a>
             </div>
         {% endif %}
 
     </div>
 </main>
+
+<!-- FOOTER (mesma da home) -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="brand-name">Save<strong>Market</strong></span>
+            <p>Conectamos consumidores a produtos com desconto perto do vencimento.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Navegação</h4>
+            <a href="{% url 'home' %}">Início</a>
+            <a href="{% url 'carrinho' %}">Carrinho</a>
+            <a href="{% url 'perfil' %}">Perfil</a>
+        </div>
+        <div class="footer-links">
+            <h4>Projeto</h4>
+            <p>ENG4021 — Turma B</p>
+            <p>Grupo 3</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 SaveMarket</p>
+    </div>
+</footer>
 
 </body>
 </html>
