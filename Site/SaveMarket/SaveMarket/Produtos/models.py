@@ -39,7 +39,10 @@ class Produto(models.Model):
     )
     validade = models.DateField(verbose_name="Validade")
     imagem = models.ImageField(upload_to="produtos/", validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])], default = None, blank=True, null=True,verbose_name="Imagem")
-
+    estoque = models.PositiveIntegerField(
+    default=0,
+    verbose_name="Quantidade em Estoque"
+    )
     class Meta:
         verbose_name = "Produto"
         verbose_name_plural = "Produtos"

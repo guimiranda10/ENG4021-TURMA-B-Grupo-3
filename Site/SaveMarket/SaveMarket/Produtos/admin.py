@@ -7,7 +7,7 @@ from .models import MercadoParceiro, Produto
 class ProdutoInline(admin.TabularInline):
     model = Produto
     extra = 1
-    fields = ('titulo', 'preco_original', 'preco_desconto', 'validade', 'imagem')
+    fields = ('titulo', 'estoque', 'preco_original', 'preco_desconto', 'validade', 'imagem')
 
 
 @admin.register(MercadoParceiro)
@@ -23,7 +23,7 @@ class MercadoParceiroAdmin(admin.ModelAdmin):
 
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'mercado', 'preco_original', 'preco_desconto', 'validade', 'status_validade')
+    list_display = ('titulo', 'mercado', 'estoque', 'preco_original', 'preco_desconto', 'validade', 'status_validade')
     list_filter = ('mercado', 'validade')
     search_fields = ('titulo',)
     ordering = ('validade',)
